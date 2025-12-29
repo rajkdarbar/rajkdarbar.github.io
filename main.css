@@ -1,5 +1,5 @@
 /* =====================================================
-   GLOBAL BASE & TYPOGRAPHY (LOCKED)
+   GLOBAL BASE & TYPOGRAPHY
 ===================================================== */
 
 html {
@@ -22,15 +22,26 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Global link style */
+a {
+  color: #0000ee;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 /* =====================================================
-   PAGE CONTAINERS
+   PAGE WRAPPER (SINGLE SOURCE OF TRUTH)
 ===================================================== */
 
-.header-details,
-.content {
-  max-width: 880px;
-  /* page width */
+.page {
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
 /* =====================================================
@@ -44,15 +55,16 @@ body {
 
 .header-slab {
   display: grid;
-  grid-template-columns: 200px auto;
-  column-gap: 32px;
-  align-items: center;
+  grid-template-columns: 180px auto;
+  column-gap: 12px;
+  align-items: start;
 }
 
 /* Profile image */
 .thumb img {
-  width: 220px;
-  height: auto;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -60,7 +72,11 @@ body {
 .header-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.header-text>*:first-child {
+  margin-top: 0;
 }
 
 .name {
@@ -69,6 +85,7 @@ body {
   letter-spacing: 0.4px;
   color: #DF723E;
   margin: 0 0 16px 0;
+  line-height: 1;
 }
 
 .contact-information {
@@ -107,45 +124,206 @@ body {
 }
 
 /* =====================================================
-   TEXT CONTENT (READING COLUMN)
+   TEXT CONTENT (READING WIDTH)
 ===================================================== */
 
 .category-description-main {
-  max-width: 760px;
-  /* reading width */
   font-size: 0.95em;
   line-height: 1.6;
   margin-top: 1em;
-  text-align: left;
 }
 
 /* =====================================================
-   DIVIDERS (MATCH TEXT WIDTH)
+   DIVIDERS
 ===================================================== */
 
 hr {
-  max-width: 760px;
   border: none;
-  border-bottom: 1px dotted #A7A9AB;
+  border-bottom: 1.8px solid #000;
   margin: 8px 0 16px 0;
 }
 
+
+
 /* =====================================================
-   LINKS
+   PUBLICATIONS (LOCKED)
 ===================================================== */
 
-.links {
-  color: #58585B;
+.pub-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  column-gap: 2px;
+  margin-bottom: 15px;
+}
+
+/* Publication image */
+.pub-thumb {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Text slab */
+.pub-text {
+  height: 120px;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+}
+
+/* Title */
+.pub-title {
+  margin: 0 0 4px 0;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Authors */
+.pub-authors {
+  font-size: 0.9em;
+  line-height: 1.35;
+}
+
+/* Venue */
+.pub-venue {
+  font-size: 0.9em;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+/* Links */
+.pub-links {
+  font-size: 0.85em;
+}
+
+.pub-links a {
+  margin-right: 1px;
+}
+
+.pub-award {
+  margin-left: 1px;
+  color: #c00000;
+  font-size: 1em;
+}
+
+
+
+/* Thesis list */
+.thesis-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bullet + content row */
+.thesis-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.thesis-item::before {
+  content: "•";
+  line-height: 1.4;
+}
+
+/* Vertical text stack */
+.thesis-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.thesis-type {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* Title */
+.thesis-title a {
+  font-size: 1em;
+  line-height: 1.35;
+  color: #0000ee;
   text-decoration: none;
 }
 
-.links:hover {
-  color: #DF723E;
+.thesis-title a:hover {
+  text-decoration: underline;
 }
 
-.uline {
-  text-decoration: none;
+/* Meta */
+.thesis-meta {
+  font-size: 0.85em;
+  font-style: italic;
 }
+
+.meta-sep {
+  font-size: 1.5em;
+  margin: 0 4px;
+}
+
+.cg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.cg-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cg-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cg-links {
+  margin-top: 6px;
+  font-size: 0.85em;
+}
+
+.cg-links a {
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =====================================================
    MOBILE
@@ -156,6 +334,10 @@ hr {
     padding: 16px;
   }
 
+  .page {
+    padding: 0;
+  }
+
   .header-slab {
     grid-template-columns: 1fr;
     row-gap: 20px;
@@ -163,14 +345,20 @@ hr {
 
   .thumb img {
     width: 140px;
+    height: 140px;
   }
 
-  .category-description-main {
+  .category-description-main,
+  .pub-item {
     max-width: 100%;
-    font-size: 1em;
   }
 
-  hr {
-    max-width: 100%;
+  .pub-item {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .pub-text {
+    height: auto;
   }
 }
