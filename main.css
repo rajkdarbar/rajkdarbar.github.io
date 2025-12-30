@@ -1,5 +1,5 @@
 /* =====================================================
-   GLOBAL BASE & TYPOGRAPHY
+   1. RESET & GLOBAL TYPOGRAPHY
 ===================================================== */
 
 html {
@@ -7,15 +7,16 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 24px;
   background-color: #fafafa;
+
   font-family: "Inter", system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: -0.01em;
   color: #000;
-  margin: 0;
-  padding: 24px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,17 +36,18 @@ a:hover {
 
 
 /* =====================================================
-   PAGE WRAPPER (SINGLE SOURCE OF TRUTH)
+   2. PAGE LAYOUT
 ===================================================== */
 
 .page {
-  max-width: 900px;
+  max-width: 930px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
+
 /* =====================================================
-   HEADER SECTION
+   3. HEADER (PROFILE)
 ===================================================== */
 
 .header-details {
@@ -72,10 +74,9 @@ a:hover {
 .header-text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
-.header-text>*:first-child {
+.header-text > *:first-child {
   margin-top: 0;
 }
 
@@ -83,9 +84,9 @@ a:hover {
   font-size: 32px;
   font-weight: 500;
   letter-spacing: 0.4px;
+  line-height: 1;
   color: #DF723E;
   margin: 0 0 16px 0;
-  line-height: 1;
 }
 
 .contact-information {
@@ -95,10 +96,9 @@ a:hover {
 
 .contact-information a {
   color: #000;
-  text-decoration: none;
 }
 
-/* Social icons */
+/* Social links */
 .links-container {
   display: flex;
   gap: 10px;
@@ -109,33 +109,21 @@ a:hover {
   height: 17px;
 }
 
+
 /* =====================================================
-   SECTION HEADERS
+   4. SECTION STRUCTURE
 ===================================================== */
 
 .category-headers {
-  color: #DF723E;
+  margin-top: 2.3em;
+  margin-bottom: 0.3em;
+
   font-size: 0.9em;
   font-weight: 500;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  margin-top: 2.8em;
-  margin-bottom: 0.3em;
+  color: #DF723E;
 }
-
-/* =====================================================
-   TEXT CONTENT (READING WIDTH)
-===================================================== */
-
-.category-description-main {
-  font-size: 0.95em;
-  line-height: 1.6;
-  margin-top: 1em;
-}
-
-/* =====================================================
-   DIVIDERS
-===================================================== */
 
 hr {
   border: none;
@@ -144,80 +132,27 @@ hr {
 }
 
 
-
 /* =====================================================
-   PUBLICATIONS (LOCKED)
+   5. ABOUT / LONG-FORM TEXT
 ===================================================== */
 
-.pub-item {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  column-gap: 2px;
-  margin-bottom: 15px;
-}
-
-/* Publication image */
-.pub-thumb {
-  width: 140px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* Text slab */
-.pub-text {
-  height: 120px;
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-  align-content: start;
-}
-
-/* Title */
-.pub-title {
-  margin: 0 0 4px 0;
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 1;
-}
-
-/* Authors */
-.pub-authors {
-  font-size: 0.9em;
-  line-height: 1.35;
-}
-
-/* Venue */
-.pub-venue {
-  font-size: 0.9em;
-  font-style: italic;
-  line-height: 1.35;
-}
-
-/* Links */
-.pub-links {
-  font-size: 0.85em;
-}
-
-.pub-links a {
-  margin-right: 1px;
-}
-
-.pub-award {
-  margin-left: 1px;
-  color: #c00000;
-  font-size: 1em;
+.category-description-main {
+  margin-top: 1em;
+  font-size: 0.95em;
+  line-height: 1.6;
 }
 
 
+/* =====================================================
+   6. THESIS LIST
+===================================================== */
 
-/* Thesis list */
 .thesis-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-/* Bullet + content row */
 .thesis-item {
   display: flex;
   align-items: flex-start;
@@ -230,46 +165,97 @@ hr {
   line-height: 1.4;
 }
 
-/* Vertical text stack */
 .thesis-content {
   display: flex;
   flex-direction: column;
 }
 
-/* Labels */
 .thesis-type {
   font-size: 0.9em;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
-/* Title */
 .thesis-title a {
   font-size: 1em;
   line-height: 1.35;
-  color: #0000ee;
-  text-decoration: none;
 }
 
-.thesis-title a:hover {
-  text-decoration: underline;
-}
-
-/* Meta */
 .thesis-meta {
   font-size: 0.85em;
   font-style: italic;
 }
 
 .meta-sep {
-  font-size: 1.5em;
   margin: 0 4px;
+  font-size: 1.5em;
 }
+
+
+/* =====================================================
+   7. PUBLICATIONS
+===================================================== */
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  column-gap: 2px;
+  margin-bottom: 15px;
+}
+
+.pub-thumb {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.pub-text {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+}
+
+.pub-title {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.pub-authors,
+.pub-venue {
+  font-size: 0.9em;
+  line-height: 1.35;
+}
+
+.pub-venue {
+  font-style: italic;
+}
+
+.pub-links {
+  font-size: 0.85em;
+}
+
+.pub-links a {
+  margin-right: 1px;
+}
+
+.pub-award {
+  margin-left: 1px;
+  color: #c00000;
+}
+
+
+/* =====================================================
+   8. COMPUTER GRAPHICS PROJECTS
+===================================================== */
 
 .cg-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, 220px);
+  column-gap: 16px;
+  row-gap: 32px;
   margin-top: 16px;
 }
 
@@ -279,15 +265,26 @@ hr {
 }
 
 .cg-card img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cg-title {
+  margin-top: 6px;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .cg-links {
   margin-top: 6px;
   font-size: 0.85em;
+  text-align: center;
 }
 
 .cg-links a {
@@ -295,38 +292,18 @@ hr {
 }
 
 
+/* =====================================================
+   9. FOOTER
+===================================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.site-footer {
+  font-size: 0.75em;
+  color: #555;
+}
 
 
 /* =====================================================
-   MOBILE
+   10. RESPONSIVE (MOBILE)
 ===================================================== */
 
 @media (max-width: 768px) {
@@ -356,9 +333,5 @@ hr {
   .pub-item {
     grid-template-columns: 1fr;
     row-gap: 12px;
-  }
-
-  .pub-text {
-    height: auto;
   }
 }
